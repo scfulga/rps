@@ -13,7 +13,7 @@ function getHumanChoice(){
         while(!(choices.includes(input.toLowerCase()))){
 
             alert("not valid, try again");
-            input = prompt("Choose Rock , Paper or Scissors ");
+            input = prompt("Choose Rock, Paper or Scissors ");
 
         } 
     }
