@@ -7,7 +7,9 @@ const choices = ['rock', 'paper', 'scissors'];
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
-const score = document.querySelector("#score");
+const resetBtn = document.querySelector("#reset");
+
+const getScore = document.querySelector("#score");
 const gameResult = document.querySelector("#result");
 
 rockBtn.addEventListener('click', () => {
@@ -21,6 +23,10 @@ paperBtn.addEventListener('click', () => {
 scissorsBtn.addEventListener('click', () => {
     playRound('scissors', getComputerChoice());
 });
+
+resetBtn.addEventListener('click', () => {
+    resetGame();    
+})
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
@@ -36,11 +42,38 @@ function playRound(humanChoice, computerChoice) {
     ) {
         humanScore++;
         gameResult.innerHTML = "You won!";
-        score.innerHTML = `${humanScore} - ${computerScore}`;
     } else {
         computerScore++;
         gameResult.innerHTML = "Computer won!";
-        score.innerHTML = `${humanScore} - ${computerScore}`;
+    }
+    getScore.innerHTML = `${humanScore} - ${computerScore}`;
+    
+    checkWinner();
+}
+
+function checkWinner(){
+    if (humanScore === 5){
+        gameResult.innerHTML = "You are the winner";
+        stopGame();
+    }
+    if (computerScore === 5){
+        gameResult.innerHTML = "Computer is the winner";
+        stopGame();
     }
 }
 
+function stopGame(){
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled= true;
+}
+
+function resetGame(){
+    humanScore = 0;
+    computerScore = 0 
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled= false;
+    getScore.innerHTML = `${humanScore} - ${computerScore}`;
+    gameResult.innerHTML = "Start";
+}
