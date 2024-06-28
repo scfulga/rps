@@ -1,4 +1,23 @@
-let choices = ["rock", "paper", "scissors"]
+const choices = ['rock', 'paper', 'scissors']
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
+rockBtn.addEventListener('click', () => {
+    playRound('rock', getComputerChoice());
+});
+
+paperBtn.addEventListener('click', () => {
+    playRound('paper', getComputerChoice());
+});
+
+scissorsBtn.addEventListener('click', () => {
+    playRound('scissors', getComputerChoice());
+});
+
+
+
+
 
 function getComputerChoice(){
     return choices[Math.floor(Math.random() * choices.length)];
@@ -9,7 +28,7 @@ function getHumanChoice(){
     if (choices.includes(input.toLowerCase())){
         return input.toLowerCase();
     }
-    else {
+else {
         while(!(choices.includes(input.toLowerCase()))){
 
             alert("not valid, try again");
@@ -19,8 +38,6 @@ function getHumanChoice(){
     }
 }
 
-
-function playGame(){
     let humanScore = 0;
     let computerScore = 0;
     function playRound(humanChoice, computerChoice) {
@@ -35,19 +52,6 @@ function playGame(){
             console.log("Computer won!");
             computerScore++;
         }
-}
-    
-    for(i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(`You chose: ${humanSelection}`);
-        console.log(`Computer chose: ${computerSelection}`);
-        console.log(`Score ${humanScore} : ${computerScore}`);
-    }
-    
 
-}
 
-playGame();
-
+    }   
