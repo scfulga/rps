@@ -11,6 +11,7 @@ const resetBtn = document.querySelector("#reset");
 
 const getScore = document.querySelector("#score");
 const gameResult = document.querySelector("#result");
+const outcomeMessage = document.querySelector("#beat")
 
 rockBtn.addEventListener('click', () => {
     playRound('rock', getComputerChoice());
@@ -36,6 +37,7 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         gameResult.innerHTML = "It's a tie!";
         gameResult.style.color = "#fab387";
+        outcomeMessage.innerHTML = `${humanChoice} ties with ${computerChoice}`;
 
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") || 
@@ -45,10 +47,12 @@ function playRound(humanChoice, computerChoice) {
         humanScore++;
         gameResult.innerHTML = "You won!";
         gameResult.style.color = "#a6e3a1";
+        outcomeMessage.innerHTML = `${humanChoice} beats ${computerChoice}`;
     } else {
         computerScore++;
-        gameResult.innerHTML = "Computer won!";
+        gameResult.innerHTML = "You lost!";
         gameResult.style.color = "#f38ba8";
+        outcomeMessage.innerHTML = `${humanChoice} is beaten ${computerChoice}`;
     }
     getScore.innerHTML = `${humanScore} - ${computerScore}`;
     
@@ -58,10 +62,14 @@ function playRound(humanChoice, computerChoice) {
 function checkWinner(){
     if (humanScore === 5){
         gameResult.innerHTML = "You are the winner";
+        gameResult.style.color = "#a6e3a1";
+        getScore.innerHTML = "Go ahead and reset!";
         stopGame();
     }
     if (computerScore === 5){
-        gameResult.innerHTML = "Computer is the winner";
+        gameResult.innerHTML = "You lost!";
+        gameResult.style.color = "#f38ba8";
+        getScore.innerHTML = "Go ahead and reset!";
         stopGame();
     }
 }
@@ -80,4 +88,6 @@ function resetGame(){
     scissorsBtn.disabled= false;
     getScore.innerHTML = `${humanScore} - ${computerScore}`;
     gameResult.innerHTML = "Start";
+    gameResult.style.color = "#cdd6f4";
+    outcomeMessage.innerHTML = "First to 5 wins the game!";
 }
