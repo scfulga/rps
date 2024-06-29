@@ -10,15 +10,23 @@
 }
 
 
-#header{
+#header,
+#footer{
     display: flex;
-    justify-content: center;
     align-items: center;
     width: auto;
     height: 100px;
     background-color: #181825;
 
 }
+
+#header{
+     justify-content: center;
+ }
+
+#footer{
+     justify-content: flex-end;
+ }
 
 .container{
     display: flex;
