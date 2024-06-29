@@ -52,24 +52,24 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
         gameResult.innerHTML = "You lost!";
         gameResult.style.color = "#f38ba8";
-        outcomeMessage.innerHTML = `${humanChoice} is beaten ${computerChoice}`;
+        outcomeMessage.innerHTML = `${humanChoice} is beaten by ${computerChoice}`;
     }
-    getScore.innerHTML = `${humanScore} - ${computerScore}`;
+    getScore.innerHTML = `Player: ${humanScore}  Computer: ${computerScore}`;
     
     checkWinner();
 }
 
 function checkWinner(){
     if (humanScore === 5){
-        gameResult.innerHTML = "You are the winner";
+        gameResult.innerHTML = "You won!";
         gameResult.style.color = "#a6e3a1";
-        getScore.innerHTML = "Go ahead and reset!";
+        getScore.innerHTML = `Player: ${humanScore}  Computer: ${computerScore}`;
         stopGame();
     }
     if (computerScore === 5){
         gameResult.innerHTML = "You lost!";
         gameResult.style.color = "#f38ba8";
-        getScore.innerHTML = "Go ahead and reset!";
+        getScore.innerHTML = `Player: ${humanScore}  Computer: ${computerScore}`;
         stopGame();
     }
 }
@@ -86,8 +86,8 @@ function resetGame(){
     rockBtn.disabled = false;
     paperBtn.disabled = false;
     scissorsBtn.disabled= false;
-    getScore.innerHTML = `${humanScore} - ${computerScore}`;
-    gameResult.innerHTML = "Start";
+    getScore.innerHTML = `Player: ${humanScore} Computer: ${computerScore}`;
+    gameResult.innerHTML = "Choose one";
     gameResult.style.color = "#cdd6f4";
     outcomeMessage.innerHTML = "First to 5 wins the game!";
 }
