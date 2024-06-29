@@ -6,6 +6,7 @@ body {
     color: #cdd6f4;
     margin: 0;
     padding: 0;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 #header,
@@ -69,8 +70,8 @@ button {
 }
 
 button:hover {
-    background-color: #89dceb;
-    color: black;
+    background-color: #313244;
+    color: #cdd6f4;
     cursor: pointer;
 }
 
