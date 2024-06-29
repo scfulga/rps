@@ -35,6 +35,8 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         gameResult.innerHTML = "It's a tie!";
+        gameResult.style.color = "#fab387";
+
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") || 
         (humanChoice === "scissors" && computerChoice === "paper") || 
@@ -42,9 +44,11 @@ function playRound(humanChoice, computerChoice) {
     ) {
         humanScore++;
         gameResult.innerHTML = "You won!";
+        gameResult.style.color = "#a6e3a1";
     } else {
         computerScore++;
         gameResult.innerHTML = "Computer won!";
+        gameResult.style.color = "#f38ba8";
     }
     getScore.innerHTML = `${humanScore} - ${computerScore}`;
     
